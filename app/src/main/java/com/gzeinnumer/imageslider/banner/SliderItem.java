@@ -1,4 +1,4 @@
-package com.gzeinnumer.imageslider;
+package com.gzeinnumer.imageslider.banner;
 
 public class SliderItem {
 

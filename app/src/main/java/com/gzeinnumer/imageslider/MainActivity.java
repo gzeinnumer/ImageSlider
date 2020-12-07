@@ -2,14 +2,10 @@ package com.gzeinnumer.imageslider;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 
-import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
-import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
-import com.smarteist.autoimageslider.SliderAnimations;
+import com.gzeinnumer.imageslider.banner.InitBanner;
+import com.gzeinnumer.imageslider.banner.SliderItem;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
@@ -18,7 +14,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     SliderView sliderView;
-    private SliderAdapterExample adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,30 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         sliderView = findViewById(R.id.imageSlider);
-
-        adapter = new SliderAdapterExample(this);
-        sliderView.setSliderAdapter(adapter);
-        sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
-        sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
-        sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
-        sliderView.setIndicatorSelectedColor(Color.WHITE);
-        sliderView.setIndicatorUnselectedColor(Color.GRAY);
-        sliderView.setScrollTimeInSec(3);
-        sliderView.setAutoCycle(true);
-        sliderView.startAutoCycle();
         
-        sliderView.setOnIndicatorClickListener(new DrawController.ClickListener() {
-            @Override
-            public void onIndicatorClicked(int position) {
-                Log.i("GGG", "onIndicatorClicked: " + sliderView.getCurrentPagePosition());
-            }
-        });
+        InitBanner initBanner = new InitBanner(this, sliderView);
 
-        renewItems(sliderView);
-
-    }
-
-    public void renewItems(View view) {
         List<SliderItem> sliderItemList = new ArrayList<>();
         //dummy data
         for (int i = 0; i < 5; i++) {
@@ -62,18 +36,13 @@ public class MainActivity extends AppCompatActivity {
             }
             sliderItemList.add(sliderItem);
         }
-        adapter.renewItems(sliderItemList);
+
+        initBanner.setList(sliderItemList).build();
+
     }
 
-    public void removeLastItem(View view) {
-        if (adapter.getCount() - 1 >= 0)
-            adapter.deleteItem(adapter.getCount() - 1);
-    }
 
-    public void addNewItem(View view) {
-        SliderItem sliderItem = new SliderItem();
-        sliderItem.setDescription("Slider Item Added Manually");
-        sliderItem.setImageUrl("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-        adapter.addItem(sliderItem);
-    }
+
+
+
 }
