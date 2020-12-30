@@ -20,9 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sliderView = findViewById(R.id.imageSlider);
-        
-        InitBanner initBanner = new InitBanner(this, sliderView);
+        SliderView sliderView = findViewById(R.id.imageSlider);
 
         List<SliderItem> sliderItemList = new ArrayList<>();
         //dummy data
@@ -37,12 +35,8 @@ public class MainActivity extends AppCompatActivity {
             sliderItemList.add(sliderItem);
         }
 
+        InitBanner initBanner = new InitBanner(this, sliderView);
         initBanner.setList(sliderItemList).build();
 
     }
-
-
-
-
-
 }
