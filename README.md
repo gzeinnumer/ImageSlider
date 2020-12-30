@@ -1,5 +1,7 @@
 # ImageSlider
-Source https://github.com/gzeinnumer/Android-Image-Slider
+Source
+- https://github.com/gzeinnumer/Android-Image-Slider
+- https://github.com/smarteist/Android-Image-Slider
 
 clone aja, untuk example
 
