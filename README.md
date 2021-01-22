@@ -21,6 +21,8 @@ annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     - [SliderItem.java](https://github.com/gzeinnumer/ImageSlider/blob/master/app/src/main/java/com/gzeinnumer/imageslider/banner/SliderItem.java)
   - [MainActivity.java](https://github.com/gzeinnumer/ImageSlider/blob/master/app/src/main/java/com/gzeinnumer/imageslider/MainActivity.java)
 - res
+  - drawable
+    - [bg_overlay.xml](https://github.com/gzeinnumer/ImageSlider/blob/master/app/src/main/res/drawable/bg_overlay.xml)
   - layout
     - [activity_main.xml](https://github.com/gzeinnumer/ImageSlider/blob/master/app/src/main/res/layout/activity_main.xml)
     - [image_slider_layout_item.xml](https://github.com/gzeinnumer/ImageSlider/blob/master/app/src/main/res/layout/image_slider_layout_item.xml)
